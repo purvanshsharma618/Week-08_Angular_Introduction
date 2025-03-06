@@ -1,15 +1,20 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Bridgelabz';
-  ngOnInit(): void{
-  this.title = "Hello from BridgeLabz.";
+  url = "https://www.bridgelabz.com";
+
+  ngOnInit(): void {
+    this.title = "Hello from BridgeLabz.";
+  }
+
+  onClick(event: Event): void {
+    console.log("Saved button is clicked!", event);
+    window.open(this.url, "_blank");
   }
 }
